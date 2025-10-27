@@ -1,0 +1,62 @@
+// Create a new item
+curl -X POST http://localhost:8080/api/items \
+  -H "Content-Type: application/json" \
+  -d '{
+        "name": "Underwear",
+        "description": "Cotton underwear"
+      }'
+
+###
+
+// Get all items
+curl -X GET http://localhost:8080/api/items
+
+###
+
+// Get a specific item by ID
+curl -X GET http://localhost:8080/api/items/2
+
+###
+
+// Update an item by ID 
+curl -X PUT http://localhost:8080/api/items/{itemId} \
+  -H "Content-Type: application/json" \
+  -d '{
+        "name": "Updated Slayer",
+        "description": "Updated cotton slayer"
+      }'
+
+###
+
+// Delete an item by ID
+curl -X DELETE http://localhost:8080/api/items/{itemId}
+
+###
+
+// Add a variant to an item
+curl -X POST http://localhost:8080/api/items/2/variants \
+  -H "Content-Type: application/json" \
+  -d '{
+        "color": "Blue",
+        "size": "L",
+        "price": 197000,
+        "stock": 1
+      }'
+
+###
+
+// Get all variants for an item
+curl -X GET http://localhost:8080/api/items/2/variants
+
+###
+
+// Delete a variant by ID
+curl -X DELETE http://localhost:8080/api/variants/1
+
+###
+
+// Sell a variant (decrease stock)
+curl -X POST "http://localhost:8080/api/variants/1/sell?quantity=2"
+
+
+
